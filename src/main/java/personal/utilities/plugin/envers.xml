@@ -1,0 +1,58 @@
+<!-- Generates hibernate-envers versioning scripts -->
+
+<!-- parent module which skips hibernate scripts generation plugin (in case building process would be started from root module) -->
+<profile>
+    <id>envers</id>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>de.juplo</groupId>
+                <artifactId>hibernate-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</profile>
+
+<!-- child module where resides targeted entities -->
+<profile>
+    <id>envers</id>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>de.juplo</groupId>
+                <artifactId>hibernate-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
+                    <export>false</export>
+                    <format>true</format>
+                    <delimiter>;</delimiter>
+                    <force>true</force>
+                    <hibernateProperties>application.properties</hibernateProperties>
+                    <outputFile>db/envers/envers__${maven.build.timestamp}.sql</outputFile>
+                    <dialect>======== DIALECT ================</dialect>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</profile>

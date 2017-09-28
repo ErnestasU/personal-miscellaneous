@@ -1,0 +1,7 @@
+<appender>
+    <!-- ..... -->
+    <filter class="lt.policija.atpeir.app.filter.logging.StringStrictMatchFilter">
+        <param name="StringToMatch" value="TEXT TO MATCH" />
+        <param name="AcceptOnMatch" value="true" />
+    </filter>
+</appender>
