@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * <p> Simple ATPR system task.
+ * <p> Simple system task.
  * Usually it should perform internal process and avoid remote service calls.
  * 
  * @author Ernestas
