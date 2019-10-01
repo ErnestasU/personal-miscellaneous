@@ -55,10 +55,7 @@
                 <configuration>
                     <skipTests>${skip.integration.tests}</skipTests>
                     <systemPropertyVariables>
-                        <testDynamoDBPort>4568</testDynamoDBPort>
-                        <testS3Port>4567</testS3Port>
-                        <host>localhost</host>
-                        <testS3BucketName>timetable-solver-payloads</testS3BucketName>
+                          <!-- Props to access in tests via System.getProperty(..) -->
                     </systemPropertyVariables>
                 </configuration>
             </execution>
